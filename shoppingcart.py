@@ -68,7 +68,7 @@ class shoppingcart :
                 if self.cart[item_name]<count :
                     print("Not possible to remove")
                 else:
-                    print("remove successfully")
+                    print("removed successfully")
                     self.cart[item_name]-=count
                     shoppingcart.items[item_name]+=count
             else:
