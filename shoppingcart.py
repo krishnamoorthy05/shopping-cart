@@ -8,7 +8,7 @@ class shoppingcart :
         self.price=0
     def main(self):
         print()
-        op=int(input(' Enter 1 to display all the item : \n Enter 2 to display your details : \n Enter 3 to add items in cart : \n Enter 4 to remove items from cart : \n Enter 5 to exit : '))
+        op=int(input(" Enter 1 to display all the item : \n Enter 2 to display your details : \n Enter 3 to add items in cart : \n Enter 4 to remove items from cart : \n Enter 5 to exit : "))
         if op==1:
             self.display()
             self.main()
@@ -47,12 +47,12 @@ class shoppingcart :
             print("items not available")
         else :
             count=int(input(f'Tne number of {item_name} left is {shoppingcart.items[item_name]} \nEnter the number of {item_name} you want to add :'))
-            self.price+=(shoppingcart.prices[item_name]*count)
-            print(f'your cart value is :Rs {self.price}')
             if shoppingcart.items[item_name]<count:
                 print(f'stock not available ,only {shoppingcart.items[item_name]} left : ')
             else :
                 print("Added successfully")
+                self.price+=(shoppingcart.prices[item_name]*count)
+                print(f'your cart value is :Rs {self.price}')
                 if item_name in self.cart:
                     self.cart[item_name]+=count
                 else:
@@ -63,12 +63,13 @@ class shoppingcart :
             item_name=input("Enter the item name :")
             if item_name  in self.cart:
                 count=int(input("Enter the number of item to remove:"))
-                self.price-=(shoppingcart.prices[item_name]*count)
-                print(f'your cart value is :Rs {self.price} ')
+                
                 if self.cart[item_name]<count :
-                    print("Not possible to remove")
+                    print(f'Not possible to remove {count}-{item_name} since You have only {self.cart[item_name]} {item_name} in Your cart ')
                 else:
-                    print("removed successfully")
+                    print("remove successfully")
+                    self.price-=(shoppingcart.prices[item_name]*count)
+                    print(f'your cart value is :Rs {self.price} ')
                     self.cart[item_name]-=count
                     shoppingcart.items[item_name]+=count
             else:
