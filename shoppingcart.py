@@ -1,6 +1,6 @@
 class shoppingcart :
-    items = {'toys':4,'phones':8,'shirt':6,'pants':10,'shoes':10}
-    prices= {'toys':100,'phones':2500,'shirt':1000,'pants':700,'shoes':550}
+    items = {'toys':4,'phones':8,'shirt':6,'pants':10,'shoes':10}              # mentioned the list of items and quantity 
+    prices= {'toys':100,'phones':2500,'shirt':1000,'pants':700,'shoes':550}    # given the price of each items present in the store
     def __init__(self,c_name,ph_no):
         self.c_name=c_name
         self.ph_no=ph_no
@@ -28,11 +28,11 @@ class shoppingcart :
             print('invalid Input')
             self.main()
     @classmethod
-    def display(cls):
+    def display(cls):                             #to display the items that we mentioned above with their price
         print('Items available are : ')
         for items in shoppingcart.items:
             print(f'{items} : {shoppingcart.items[items]} ,price per unit : {shoppingcart.prices[items]}')
-    def c_display (self):
+    def c_display (self):                        # can display the customer details and items present in their cart   
         print(f'Name : {self.c_name}')
         print (f'Phonenumber : {self.ph_no}')
         if len(self.cart)==0:
@@ -41,7 +41,7 @@ class shoppingcart :
             print("items present in your cart")
             for items in self.cart:
                 print(f'{items} : {self.cart[items]}')
-    def additems(self):
+    def additems(self):                                 # to add items in the cart
         item_name = input ("enter the item name :")
         if item_name not in shoppingcart.items:
             print("items not available")
@@ -58,7 +58,7 @@ class shoppingcart :
                 else:
                     self.cart[item_name]=count
                 shoppingcart.items[item_name]-=count
-    def removeitems(self):
+    def removeitems(self):                               # to remove items from the cart
         if bool (self.cart):
             item_name=input("Enter the item name :")
             if item_name  in self.cart:
